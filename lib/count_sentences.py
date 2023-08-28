@@ -1,10 +1,16 @@
 class MyString:
-    def __init__(self, value):
+    def __init__(self, value="string."):
+        self.value = value
+    @property
+    def get_value(self):
+        return self.value
+    
+    def set_value(self, value):
         if isinstance(value, str):
             self.value = value
         else:
-            raise ValueError("Value must be a string.")
-
+            print("The value must be a string.")
+    
     def is_sentence(self):
         return self.value.endswith('.')
 
@@ -15,5 +21,5 @@ class MyString:
         return self.value.endswith('!')
 
     def count_sentences(self):
-        return self.value.count('.') + self.value.count('?') + self.value.count('!')
+        self.value.count('.') + self.value.count('?') + self.value.count('!')
 
